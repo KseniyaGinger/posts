@@ -1,7 +1,6 @@
-import org.junit.Test
-
 import org.junit.Assert.*
 import org.junit.Before
+import org.junit.Test
 
 class WallServiceTest {
 
@@ -15,17 +14,32 @@ class WallServiceTest {
     fun add() {
         val service = WallService
         val post = Post(
+            11,
+            22,
+            33,
             0,
-            1,
-            2,
-            3,
-            "Test post",
-            4,
+            0,
+            "hello",
+            12,
+            45,
+            false,
+            "true",
+            63,
             true,
             true,
             true,
             false,
-            Comments()
+            false,
+            true,
+            56,
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
+            postSource = PostSource(),
+            geo = Geo(),
+            donut = Donut(),
         )
 
         val addedPost = service.add(post)
@@ -36,17 +50,32 @@ class WallServiceTest {
     fun testUpdatePost() {
         val service = WallService
         val post = Post(
+            11,
+            22,
+            33,
             0,
-            1,
-            2,
-            3,
-            "Test post",
-            4,
+            0,
+            "hello",
+            12,
+            45,
+            false,
+            "true",
+            63,
             true,
             true,
             true,
             false,
-            Comments()
+            false,
+            true,
+            56,
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
+            postSource = PostSource(),
+            geo = Geo(),
+            donut = Donut(),
         )
         service.add(post)
 
@@ -59,17 +88,32 @@ class WallServiceTest {
     fun testUpdateNonExistingPost() {
         val service = WallService
         val post = Post(
+            11,
+            22,
+            33,
             0,
-            1,
-            2,
-            3,
-            "Test post",
-            4,
+            0,
+            "hello",
+            12,
+            45,
+            false,
+            "true",
+            63,
             true,
             true,
             true,
             false,
-            Comments()
+            false,
+            true,
+            56,
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
+            postSource = PostSource(),
+            geo = Geo(),
+            donut = Donut(),
         )
 
         val updated = service.update(post.copy(), 2)
