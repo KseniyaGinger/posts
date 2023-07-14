@@ -151,10 +151,10 @@ object WallService {
         return posts.last()
     }
 
-    fun update(post: Post, id: Int): Boolean {
+    fun update(newPost: Post, id: Int): Boolean {
         for ((index, post) in posts.withIndex()) {
             if (post.id == id) {
-                posts[index] = post.copy(id = post.id + 1)
+                posts[index] = newPost.copy(id = post.id + 1)
                 return true
             }
         }
