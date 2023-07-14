@@ -130,6 +130,16 @@ object WallService {
     private var donut = Donut()
     private var lastId = 0
 
+    fun createComment(postId: Int, comment: Comments): Comments {
+        for (post in posts) {
+            if (post.id == postId) {
+                comments += comment.copy()
+                return comments.last()
+            }
+        }
+        throw PostNotFoundException("Нет Поста с таким id: $postId")
+    }
+
     fun clear() {
         posts = emptyArray()
         // также здесь нужно сбросить счетчик для id постов, если он у вас используется
@@ -204,4 +214,8 @@ object WallService {
     data class VideoAttachment(val video: Video) : Attachment {
         override var type = "video"
     }
+}
+
+class PostNotFoundException(message: String) : RuntimeException (message) {
+
 }
